@@ -37,13 +37,13 @@
 
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md fixed-top navbar-white shadow-sm">
+        <nav class="navbar navbar-expand-md fixed-top navbar-white bg-white shadow-sm">
             <div class="container">
                 <!-- <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }}
                 </a> -->
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    <img src="{{ asset('img/newlogo.png') }}" alt="logo" class="" height="70px">
+                    <img src="{{ asset('img/newlogo.png') }}" alt="logo" class="ml-2" height="60px">
                 </a>
                 <button class="navbar-toggler text-black" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -126,9 +126,9 @@
         </main>
 
         <!-- ======= Footer ======= -->
-        <footer id="footer">
+        <footer id="footer" class="bg-light">
             <div class="container">
-                <div class="row">
+                <div class="row ml-1">
                     <div class="contact-about mx-auto">
                         <!-- <h2 style="color: #E5545E;"> <b> ElevenLux </b> </h2> -->
                         <a class="navbar-brand" href="{{ url('/') }}">

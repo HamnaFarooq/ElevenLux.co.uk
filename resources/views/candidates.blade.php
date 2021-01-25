@@ -46,30 +46,40 @@ Welcome to ElevenLux
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-md-6" data-aos="fade-up" data-aos-delay="300">
-                    <form action="forms/contact.php" method="post" role="form" class="php-email-form" enctype="multipart/form-data">
+                    <form action=" {{ url('/send_cv') }} " method="post" enctype="multipart/form-data">
+                        @csrf
                         <div class="form-group">
-                            <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                            <input type="text" name="name" class="form-control" id="name" required placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
                             <div class="validate"></div>
                         </div>
                         <div class="form-group">
-                            <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" />
+                            <input type="text" name="position" class="form-control" id="position" required placeholder="For Position" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
                             <div class="validate"></div>
                         </div>
                         <div class="form-group">
-                            <input type="phone" class="form-control" name="phone" id="phone" placeholder="Your Phone number" data-rule="phone" data-msg="Please enter a valid Phone number" />
+                            <input type="email" class="form-control" name="email" id="email" required placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" />
+                            <div class="validate"></div>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" name="number" id="phone" required placeholder="Your Phone number" data-rule="minlen:9" data-msg="Please enter at least 9 digit number"  />
                             <div class="validate"></div>
                         </div>
                         <div class="form-group">
                             <label for="exampleFormControlFile1">Resume/CV in pdf format</label>
-                            <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                            <input type="file" class="form-control-file" name="cv" id="exampleFormControlFile1" required accept="application/pdf">
+                            <small class="text-muted"> No other format will be accepted.</small>
                         </div>
-                        <div class="mb-3">
-                            <div class="loading">Loading</div>
-                            <div class="error-message"></div>
-                            <div class="sent-message">
-                                Your details have been sent. Thank you!
-                            </div>
+                        <!-- <div class="form-group">
+                            <label for="file">Upload a file</label>
+                            <input name="file" type="file" name="cv" class="form-control">
+                        </div> -->
+                        @if($errors->any())
+                        @foreach ($errors->all() as $error)
+                        <div class="text-danger">
+                            {{$error}}
                         </div>
+                        @endforeach
+                        @endif
                         <div class="text-center">
                             <button type="submit">Send</button>
                         </div>

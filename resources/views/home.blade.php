@@ -1,5 +1,4 @@
 @include('partials.add_vacancy')
-@include('partials.edit_vacancy')
 
 @extends('layouts.app')
 
@@ -21,7 +20,7 @@ Welcome Admin
                         <div class="">
                             <span class="icon"><i class="fa fa-eye"></i></span>
                             <h5>
-                                <b class="">274,678</b>
+                                <b class="">{{ $visits }}</b>
                                 <span class="">Visits</span>
                             </h5>
                         </div>
@@ -32,7 +31,7 @@ Welcome Admin
                         <div class="">
                             <span class="icon"><i class="fa fa-envelope"></i></span>
                             <h5>
-                                <b class="number">203</b>
+                                <b class="number">{{ $contacted }}</b>
                                 <span class="title">Contacted Us</span>
                             </h5>
                         </div>
@@ -43,7 +42,7 @@ Welcome Admin
                         <div class="">
                             <span class="icon"><i class="fa fa-users"></i></span>
                             <h5>
-                                <b class="">1,252</b>
+                                <b class="">{{ $applicants }}</b>
                                 <span class="">CVs Recieved</span>
                             </h5>
                         </div>
@@ -71,18 +70,26 @@ Welcome Admin
                     <th scope="col">Urgent</th>
                     <th scope="col">Part time</th>
                     <th scope="col">Edit</th>
+                    <th scope="col">Delete</th>
                 </tr>
             </thead>
             <tbody>
+                @foreach($vacancies as $vacancy)
+                @include('partials.edit_vacancy')
                 <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
+                    <td> {{ $vacancy->heading }} </td>
+                    <td> {{ $vacancy->position }} </td>
+                    <td> {{ $vacancy->salary }} </td>
+                    <td> @if($vacancy->urgent) <i class="icofont-tick-mark" style="color: #e5545e"></i> @endif </td>
+                    <td> @if($vacancy->part_time) <i class="icofont-tick-mark" style="color: #e5545e"></i> @endif </td>
                     <td>
-                        <button class="btn-edit px-3" data-toggle="modal" data-target="#edit_vacancy"> Edit </button>
+                        <button class="btn-edit px-3" data-toggle="modal" data-target="#edit_vacancy{{ $vacancy->id }}"> Edit </button>
+                    </td>
+                    <td>
+                        <a href="{{ url('/delete_vacancy/') }}/{{$vacancy->id}}"> <button class="btn-edit px-3"> Delete </button> </a>
                     </td>
                 </tr>
+                @endforeach
             </tbody>
         </table>
     </div>

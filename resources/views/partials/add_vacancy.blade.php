@@ -13,36 +13,37 @@
 
             <div class="modal-body admin">
                 <!-- form -->
-                <form action="{{ url('/add_vacancy') }}" method="post" role="form" class="php-email-form">
+                <form action="{{ url('/add_vacancy') }}" method="post" >
+                    @csrf
                     <div class="form-group">
-                    <label>Heading:</label>
+                        <label>Heading:</label>
                         <input type="text" name="heading" class="form-control" id="heading" placeholder="Enter heading" />
                         <div class="validate"></div>
                     </div>
                     <div class="form-group">
-                    <label>Position:</label>
-                        <input type="text" class="form-control" name="position" placeholder="Enter position" data-rule="email" data-msg="Please enter a valid email" />
+                        <label>Position:</label>
+                        <input type="text" class="form-control" name="position" placeholder="Enter position" />
                         <div class="validate"></div>
                     </div>
                     <div class="form-group">
-                    <label>Salary:</label>
+                        <label>Salary:</label>
                         <input type="text" class="form-control" name="salary" placeholder="Enter salary" />
                         <div class="validate"></div>
                     </div>
                     <div class="form-check">
                         <label class="form-check-label">
-                            <input class="form-check-input" type="checkbox" value="urgent">
+                            <input class="form-check-input" type="checkbox" name="urgent" value="1">
                             Urgent
                         </label>
                     </div>
                     <div class="form-check disabled">
                         <label class="form-check-label">
-                            <input class="form-check-input" type="checkbox" value="part_time">
+                            <input class="form-check-input" type="checkbox" name="part_time" value="1">
                             Part time
                         </label>
                     </div>
                     <div class="text-center">
-                        <button class="btn-add px-5" type="submit"> Add </button>
+                        <button type="submit" class="btn-add px-5"> Add </button>
                     </div>
                 </form>
 

@@ -141,10 +141,11 @@ Welcome to ElevenLux
     <div class="row content">
         <div class="col" data-aos="fade-up" data-aos-delay="150">
             <p class="px-2 text-justify">
-                Speak to a member of the team by emailing either
+                Want to find out more information? Then please email <b> support@elevenlux.co.uk </b> and a member of the ElevenLux team will be in touch.
+                <!-- Speak to a member of the team by emailing either
                 <b>TheElevenLux@elevenlux.co.uk</b> or
                 <b>PayRecruit@elevenlux.co.uk</b> and a member of the
-                ElevenLux team will be in touch.
+                ElevenLux team will be in touch. -->
             </p>
         </div>
     </div>

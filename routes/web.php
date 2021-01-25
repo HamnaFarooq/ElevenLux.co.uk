@@ -13,22 +13,21 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'UserController@welcome');
 
 Auth::routes(['verify' => true]);
 
 Route::get('/home', 'HomeController@index')->name('home')->middleware('verified');
 
-Route::get('/vacancies', function () {
-    return view('vacancies');
-});
+Route::get('/vacancies', 'UserController@vacancies');
 
-Route::get('/services', function () {
-    return view('services');
-});
+Route::get('/services', 'UserController@services');
 
-Route::get('/candidates', function () {
-    return view('candidates');
-});
+Route::get('/candidates', 'UserController@candidates');
+
+Route::post('/add_vacancy', 'VacancyController@store');
+Route::post('/edit_vacancy/{id}', 'VacancyController@update');
+Route::GET('/delete_vacancy/{id}', 'VacancyController@destroy');
+
+Route::post('/contact_us', 'UserController@contact_us');
+Route::post('/send_cv', 'UserController@send_cv');

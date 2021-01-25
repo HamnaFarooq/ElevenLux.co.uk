@@ -46,8 +46,6 @@ return [
             'port'       => env('MAIL_PORT', 587),
             'from'       => ['address' => 'f2016065099@umt.edu.pk', 'name' => 'HAMNA FAROOQ'],
             'encryption' => env('MAIL_ENCRYPTION', 'tls'),
-            'username'   => env('MAIL_USERNAME', 'f2016065099@umt.edu.pk'),
-            'password'   => env('MAIL_PASSWORD', 'HArrison Wells'),
             'sendmail'   => '/usr/sbin/sendmail -bs',
         ],
 
